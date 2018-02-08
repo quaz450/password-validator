@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /* Autour: Jessi Campbell
  * Date: 2018-02-07
  */
@@ -10,12 +8,13 @@ public class Validator {
 
 	}
 	
-	public static boolean validate(String pw){
+	public static int validate(String pw){
+		int flag = 0;
 		if(pw.equalsIgnoreCase("password"))
-			return false;
+			flag++;
 		if(pw.length()<8)
-			return false;
-		return true;
+			flag++;
+		return flag;
 	}
 
 }

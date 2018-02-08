@@ -7,12 +7,7 @@ import java.util.Scanner;
 public class Validator {
 
 	public static void main(String[] args) {
-		Scanner s = new Scanner(System.in);
-		
-		System.out.println("Please enter a Password: ");
-		String pw  = s.next();
-		
-		boolean valid  = validate(pw);
+
 	}
 	
 	public static boolean validate(String pw){

@@ -30,7 +30,7 @@ public class Validator_Test {
 	
 	@Test
 	public void passwordIsNotShort() {
-		String str1 = "crazyEight", str2 = "12345678", str3 = "AbCdeFghiJ";
+		String str1 = "crazyEight", str2 = "12345678", str3 = "AbCdeFghiJklMN0";
 		assertEquals(true, Validator.validate(str1));
 		assertEquals(true, Validator.validate(str2));
 		assertEquals(true, Validator.validate(str3));

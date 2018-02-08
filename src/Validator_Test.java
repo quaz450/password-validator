@@ -27,5 +27,13 @@ public class Validator_Test {
 		String str = "EightLong";
 		assertEquals(0, Validator.validate(str));
 	}
+	
+	@Test
+	public void hasCapital() {
+		String str = "ThisIsMyPassword";
+		assertEquals(0, Validator.validate(str));
+	}
+	
+
 		
 }

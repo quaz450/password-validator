@@ -3,36 +3,70 @@ import org.junit.Test;
 
 
 public class Validator_Test {
-
-	@Test
-	public void passwordIsPassword() {
-		String str = "password";
-		assertEquals(1, Validator.validate(str));
-	}
-	
+	//pass at least 1 rule rule
 	@Test
 	public void passwordIsNotPassword() {
-		String str = "notPassw0rd";
-		assertEquals(0, Validator.validate(str));
-	}
-	
-	@Test
-	public void passwordIsShort() {
-		String str = "pass";
-		assertEquals(1, Validator.validate(str));
+		String str = "notpassword";
+		assertTrue(Validator.validate(str)>=1);	
 	}
 	
 	@Test
 	public void passwordIsNotShort() {
-		String str = "EightLong";
-		assertEquals(0, Validator.validate(str));
+		String str = "eightlong";
+		assertTrue(Validator.validate(str)>=1);	
 	}
 	
 	@Test
-	public void hasCapital() {
+	public void hasDifCase() {
 		String str = "ThisIsMyPassword";
-		assertEquals(0, Validator.validate(str));
+		assertTrue(Validator.validate(str)>=1);	
 	}
+	
+	@Test
+	public void hasNumber(){
+		String str = "MyPass123";
+		assertTrue(Validator.validate(str)>=1);
+	}
+	
+	@Test
+	public void noThreeConsec(){
+		String str = "NoConsecutive123";
+		assertTrue(Validator.validate(str)>=1);
+	}
+	
+	//at least 1 rule is broken
+	@Test
+	public void passwordIsPassword() {
+		String str = "PassWOrd";
+		assertTrue(Validator.validate(str)<5);	
+	}
+	
+	
+	@Test
+	public void passwordIsShort() {
+		String str = "pass";
+		assertTrue(Validator.validate(str)<5);	
+	}
+
+	@Test
+	public void hasNoDifCase() {
+		String str = "thisismypassword";
+		assertTrue(Validator.validate(str)<5);	
+	}
+	
+	@Test
+	public void hasNoNumber(){
+		String str = "qwertyuio";
+		assertTrue(Validator.validate(str)<5);
+	}
+	
+	@Test
+	public void threeConsec(){
+		String str = "AaaBbBCccDdEe";
+		assertTrue(Validator.validate(str)<5);
+	}
+	
+	
 	
 
 		
